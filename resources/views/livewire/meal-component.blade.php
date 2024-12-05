@@ -76,6 +76,7 @@
                                         <th scope="col">Name</th>
                                         <th scope="col">Category</th>
                                         <th scope="col">Price</th>
+                                        <th scope="col">Image</th>
                                         <th scope="col">Option</th>
                                     </tr>
                                 </thead>
@@ -88,6 +89,8 @@
                                         <th>{{$meal->name}}</th>
                                         <th>{{$meal->category->name}}</th>
                                         <th>{{$meal->price}}</th>
+                                        <th><img src="{{ asset('storage/' . $meal->img) }}" alt="Meal Image" width="100px" height="100px"></th>
+
                                         <th>
                                             <a wire:click="change({{$meal->id}})" class="btn btn-warning"><svg
                                                     xmlns="http://www.w3.org/2000/svg" width="16" height="16"

@@ -51,34 +51,28 @@ class MealComponent extends Component
     public function store()
 {
     $this->validate([
+        'img' => 'required|image|mimes:jpg,jpeg,png|max:10240', 
         'name' => 'required|string|max:255',
-        'category_id' => 'required|integer|exists:categories,id',
-        'price' => 'required|numeric',
-        'img' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        'category_id' => 'required|exists:categories,id', 
+        'price' => 'required|numeric', 
     ]);
 
     if ($this->img) {
-        $this->file=$_FILES['img'];
-        dd($this->file);
         $this->extension = $this->img->getClientOriginalExtension();
         $this->filename = date("Y-m-d") . '_' . time() . '.' . $this->extension;
-        $this->img->move('img_uploaded/', $this->filename);
+        
+        $path = $this->img->storeAs('img_uploaded', $this->filename, 'public');
     }
 
     Meal::create([
         'name' => $this->name,
         'category_id' => $this->category_id,
         'price' => $this->price,
-        'img' => isset($this->filename) ? 'img_uploaded/' . $this->filename : null,
+        'img' => $path, 
     ]);
 
-    $this->reset();
-
-    session()->flash('success', 'Yangi taom muvaffaqiyatli qo‘shildi!');
+    $this->reset(); 
 }
-
-    
-    
 
     public function messages()
     {
