@@ -4,14 +4,17 @@ namespace App\Livewire;
 
 use App\Models\Category;
 use Livewire\Component;
-
+use Livewire\WithPagination;
 class CategoryComponent extends Component
 {
+    use WithPagination;
+
     public $check = false;
     public $name;
     public $allow=false;
     public $editname;
     public $editsort;
+    protected $paginationTheme = 'bootstrap';
     protected $rules = [
         'name' => 'required|max:255|min:3'
         
@@ -22,14 +25,14 @@ class CategoryComponent extends Component
     }
     public function render()
     {
-        $categories = Category::orderBy('sort', 'asc')->get();
+        $categories = Category::orderBy('sort', 'asc')->paginate(3);
         return view('livewire.category-component', compact('categories'));
     }
     public function Create()
     {
         $this->check = true;
     }
-    public function back()
+    public function Back()
     {
         $this->check = false;
     }
@@ -67,6 +70,16 @@ class CategoryComponent extends Component
         if($category)
         {
             $category->delete();
+        }
+    }
+    public function updateGroup($categoryId)
+    {
+        // dd($groupId);
+        foreach ($categoryId as $key) {
+            // dd($key);
+            Category::where('id',$key['value'])->update([
+                'sort'=>$key['order']
+            ]);
         }
     }
     public function messages()

@@ -32,6 +32,7 @@
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.min.css') }}">
     @livewireStyles
+    
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -331,6 +332,7 @@
         }
         // DropzoneJS Demo Code End
     </script>
+    <script src="https://cdn.jsdelivr.net/gh/livewire/sortable@v1.x.x/dist/livewire-sortable.js"></script>
 </body>
 
 </html>

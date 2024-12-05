@@ -20,11 +20,6 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
-        for ($i=1; $i <=5 ; $i++) { 
-            Category::create([
-                'name'=>'Category'.$i,
-                'sort'=>rand(1,5)
-            ]);
-        }
+       
     }
 }

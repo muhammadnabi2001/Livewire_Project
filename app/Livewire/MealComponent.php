@@ -6,11 +6,13 @@ use App\Models\Category;
 use App\Models\Meal;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Livewire\WithPagination;
+
 
 class MealComponent extends Component
 {
+    use WithPagination;
     use WithFileUploads;
-    public $meals;
     public $categories;
     public $allow;
     public $check = false;
@@ -20,7 +22,7 @@ class MealComponent extends Component
     public $filename;
 
     public $name;
-    public $category_id;
+    public $category_id="";
     public $price;
     public $img;
 
@@ -28,8 +30,10 @@ class MealComponent extends Component
     public $editcategory_id;
     public $editprice;
     public $editimg;
+    protected $paginationTheme = 'bootstrap';
+
     protected $rules = [
-        'name' => 'required|max:255',
+        'name' => 'required|max:255|min:3',
         'category_id' => 'required|exists:categories,id',
         'price' => 'required|numeric',
         'img' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
@@ -42,15 +46,15 @@ class MealComponent extends Component
     }
     public function render()
     {
-        $this->meals = Meal::orderBy('id', 'desc')->get();
+        $meals = Meal::orderBy('id', 'desc')->paginate(5);
         $this->categories = Category::all();
-        return view('livewire.meal-component');
+        return view('livewire.meal-component',compact('meals'));
     }
     public function Create()
     {
         $this->check = true;
     }
-    public function back()
+    public function Back()
     {
         $this->check = false;
     }
@@ -85,6 +89,7 @@ class MealComponent extends Component
     }
     public function edit()
     {
+        //dd(123);
         $this->validate([
             'editname' => 'required|string|max:255',
             'editcategory_id' => 'required|exists:categories,id',
