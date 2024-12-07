@@ -14,6 +14,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',HomeComponent::class);
 Route::get('/categories',CategoryComponent::class);
 Route::get('/meals',MealComponent::class);
-Route::get('/userpage',UsersComponent::class);
-Route::get('/swap/{id}',SelectedMealbyCategory::class)->name('swap');
+Route::get('/userpage',UsersComponent::class)->name('userpage');
 Route::get('carts',CartComponent::class)->name('carts');
