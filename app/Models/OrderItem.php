@@ -13,4 +13,12 @@ class OrderItem extends Model
         'total_price',
         'status'
     ];
+    public function order()
+    {
+        return $this->belongsTo(Order::class,'order_id');
+    }
+    public function meal()
+    {
+        return $this->belongsTo(Meal::class);
+    }
 }
