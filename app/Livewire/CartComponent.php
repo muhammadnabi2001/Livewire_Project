@@ -14,7 +14,7 @@ class CartComponent extends Component
     public function render()
     {
         //dd(session('cart'));
-        $this->carts = session('cart');
+        $this->carts = session('cart',[]);
         //dd($this->carts);
         return view('livewire.cart-component')->layout('components.Layout.cart');
     }
@@ -63,6 +63,6 @@ class CartComponent extends Component
         }
 
         session()->forget('cart');
-        return redirect('/userpage');
+        return redirect()->to('/userpage');
     }
 }
