@@ -46,4 +46,8 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public function hodim()
+    {
+        return $this->hasOne(Hodim::class, 'user_id');
+    }
 }

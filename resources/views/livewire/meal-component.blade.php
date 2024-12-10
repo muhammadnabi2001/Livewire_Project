@@ -36,7 +36,7 @@
                                 <div class="mb-3">
                                     <label class="form-label">Meal Category</label>
                                     <select class="form-control" wire:model="category_id">
-                                        <option value="" disabled selected>Select a category</option> <!-- Bu bo'sh holat tanlanishi kerak bo'ladi -->
+                                        <option value="" disabled selected>Select a category</option>
                                         @foreach($categories as $category)
                                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                                         @endforeach

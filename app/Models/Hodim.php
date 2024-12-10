@@ -18,4 +18,12 @@ class Hodim extends Model
         'kunlik_time',
         'oylik_time'
     ];
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+    public function bulim()
+    {
+        return $this->belongsTo(Bulim::class,'bulim_id');
+    }
 }
