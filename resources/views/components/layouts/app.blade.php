@@ -142,6 +142,35 @@
                             </a>
                         </li>
                     </ul>
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <li class="nav-item">
+                            <a href="/users" class="nav-link {{ request()->is('users') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-users"></i> <!-- Users uchun mos ikon -->
+                                <p>Users</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <li class="nav-item">
+                            <a href="/bulim" class="nav-link {{ request()->is('bulim') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-sitemap"></i> <!-- Bo'limlar uchun eng mos ikon -->
+                                <p>Bo'limlar</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <li class="nav-item">
+                            <a href="/hodim" class="nav-link {{ request()->is('hodim') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-user-tie"></i> <!-- Hodimlar uchun eng mos ikon -->
+                                <p>Hodimlar</p>
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    
+                    
+                    
+                    
                     
 
                 </nav>
@@ -149,6 +178,7 @@
         </aside>
         
         {{ $slot }}
+    </div>
 
 
         <footer class="main-footer">

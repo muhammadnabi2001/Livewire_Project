@@ -11,7 +11,7 @@
             </div>
         </section>
         <section class="content pb-3">
-            <div class="container-fluid h-100">
+            <div class="container h-100">
                 <div class="card card-row card-secondary">
                     <div class="card-header">
                         <h3 class="card-title">
