@@ -15,7 +15,7 @@ class BulimComponent extends Component
     public $name;
     public $editname;
     public $rules=[
-        'name'=>'required|min:8|max:255'
+        'name'=>'required|min:3|max:255'
     ];
     protected $paginationTheme = 'bootstrap';
 

@@ -73,6 +73,12 @@
                                 @error('img')
                                 <span class="text-danger d-block mt-1">{{ $message }}</span>
                                 @enderror
+                                @if ($img)
+                                <div class="mt-2">
+                                    <img src="{{ $img->temporaryUrl() }}" alt="Meal Image" class="img-fluid mt-2"
+                                        style="max-width: 200px;">
+                                </div>
+                                @endif
                                 <div class="mb-3">
                                     <label class="form-label">Oyli Midqor</label>
                                     <input type="number" class="form-control" wire:model.blur="oylik_miqdor">
