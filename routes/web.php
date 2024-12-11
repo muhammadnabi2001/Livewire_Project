@@ -19,13 +19,14 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('index');
 // });
-Route::get('/',HomeComponent::class);
+Route::get('/',LoginComponent::class);
+Route::get('/logout', LoginComponent::class . '@logout');
+Route::get('/home',HomeComponent::class);
 Route::get('/categories',CategoryComponent::class);
 Route::get('/meals',MealComponent::class);
 Route::get('/userpage',UsersComponent::class)->name('userpage');
 Route::get('/carts',CartComponent::class)->name('carts');
 Route::get('/orders',OrderComponent::class)->name('orders');
-Route::get('/login',LoginComponent::class)->name('login');
 Route::get('/forgotpassword',ForgotpasswordComponent::class)->name('forgotpassword');
 Route::get('/users',UserComponent::class)->name('users');
 Route::get('bulim',BulimComponent::class)->name('bulim');

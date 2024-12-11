@@ -18,11 +18,11 @@ return new class extends Migration
             $table->string('img');
             $table->string('oylik_type');
             $table->float('oylik_miqdor');
-            $table->float('bonus')->nullable();
-            $table->time('start_time')->nullable();
-            $table->time('end_time')->nullable();
-            $table->time('kunlik_time')->nullable();
-            $table->time('oylik_time')->nullable();
+            $table->double('bonus')->nullable();
+            $table->time('start_time');
+            $table->time('end_time');
+            $table->float('kunlik_time');
+            $table->float('oylik_time');
             $table->timestamps();
         });
     }

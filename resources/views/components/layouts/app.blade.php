@@ -166,6 +166,25 @@
                             </a>
                         </li>
                     </ul>
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <li class="nav-item">
+                            <a href="/userpage" class="nav-link {{ request()->is('userpage') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-user-circle"></i> <!-- Mijozlar uchun mos ikon -->
+                                <p>Klient</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <li class="nav-item">
+                            <a href="/logout" class="nav-link {{ request()->is('logout') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-sign-out-alt"></i> <!-- Logout uchun mos ikon -->
+                                <p>Logout</p>
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    
+                    
                     
                     
                     

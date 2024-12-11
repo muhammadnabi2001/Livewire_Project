@@ -128,7 +128,7 @@
 
                                                             <input id="form1" min="0" name="quantity"
                                                                 value="{{$cart['quantity']}}" type="number"
-                                                                class="form-control" />
+                                                                class="form-control" readonly/>
                                                             <button wire:click='add({{$key}})'
                                                                 class="btn btn-link px-2">
                                                                 <i class="fas fa-plus"></i>
