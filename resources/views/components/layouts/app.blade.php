@@ -119,7 +119,7 @@
                         <li class="nav-item">
                             <a href="/categories"  class="nav-link {{ request()->is('categories') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-tags"></i> <!-- Kategoriyalar uchun eng mos ikon -->
-                                <p>Categories</p>
+                                <p>Kategoriyalar</p>
                             </a>
                         </li>
                     </ul>
@@ -129,7 +129,7 @@
                         <li class="nav-item">
                             <a href="/meals" class="nav-link {{ request()->is('meals') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-utensils"></i> <!-- Ovqatlar uchun ikon -->
-                                <p>Meals</p>
+                                <p>Ovqatlar</p>
                             </a>
                         </li>
                     </ul>
@@ -138,7 +138,7 @@
                         <li class="nav-item">
                             <a href="/orders" class="nav-link {{ request()->is('orders') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-receipt"></i> <!-- Buyurtmalar uchun ikon -->
-                                <p>Orders</p>
+                                <p>Buyurtmalar</p>
                             </a>
                         </li>
                     </ul>
@@ -146,7 +146,7 @@
                         <li class="nav-item">
                             <a href="/users" class="nav-link {{ request()->is('users') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-users"></i> <!-- Users uchun mos ikon -->
-                                <p>Users</p>
+                                <p>Foydalanuvchilar</p>
                             </a>
                         </li>
                     </ul>
@@ -170,10 +170,19 @@
                         <li class="nav-item">
                             <a href="/userpage" class="nav-link {{ request()->is('userpage') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-user-circle"></i> <!-- Mijozlar uchun mos ikon -->
-                                <p>Klient</p>
+                                <p>Klientlar</p>
                             </a>
                         </li>
                     </ul>
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <li class="nav-item">
+                            <a href="/jurnal" class="nav-link {{ request()->is('jurnal') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-book"></i> <!-- Jurnal uchun mos ikon -->
+                                <p>Jurnal</p>
+                            </a>
+                        </li>
+                    </ul>
+                    
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item">
                             <a href="/logout" class="nav-link {{ request()->is('logout') ? 'active' : '' }}">

@@ -13,7 +13,7 @@ class HodimComponent extends Component
 {
     use WithPagination;
     use WithFileUploads;
-
+    public $kurish=false;
     public $users;
     public $extension;
     public $editextension;
@@ -158,10 +158,14 @@ class HodimComponent extends Component
             'kunlik_time' => $time_difference,
             'oylik_time' => $time_difference * 5 * 4,
         ]);
-
+        $this->reset();
         $this->allow = false;
     }
-
+    public function observe($id)
+    {
+        dd($id);
+       $this->kurish=true;
+    }
     public function messages()
     {
         return [

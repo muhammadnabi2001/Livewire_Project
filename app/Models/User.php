@@ -50,4 +50,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Hodim::class, 'user_id');
     }
+    public function journals()
+    {
+        return $this->hasMany(Jurnal::class,'user_id');
+    }
+
 }

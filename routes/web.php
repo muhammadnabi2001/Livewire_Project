@@ -8,6 +8,7 @@ use App\Livewire\CheckComponent;
 use App\Livewire\ForgotpasswordComponent;
 use App\Livewire\HodimComponent;
 use App\Livewire\HomeComponent;
+use App\Livewire\JurnalComponent;
 use App\Livewire\LoginComponent;
 use App\Livewire\MealComponent;
 use App\Livewire\OrderComponent;
@@ -32,3 +33,4 @@ Route::get('/forgotpassword',ForgotpasswordComponent::class)->name('forgotpasswo
 Route::get('/users',UserComponent::class)->name('users')->middleware(Check::class.':admin');
 Route::get('bulim',BulimComponent::class)->name('bulim')->middleware(Check::class.':admin');
 Route::get('hodim',HodimComponent::class)->name('hodim')->middleware(Check::class.':admin');
+Route::get('jurnal',JurnalComponent::class)->name('jurnal');

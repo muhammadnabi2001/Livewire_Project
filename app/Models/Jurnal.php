@@ -14,4 +14,13 @@ class Jurnal extends Model
         'date',
         'time'
     ];
+   
+    public function user()
+    {
+        return $this->belongsTo(User::class,'user_id');
+    }
+    public function hodim()
+    {
+        return $this->belongsTo(Hodim::class,'hodim_id');
+    }
 }

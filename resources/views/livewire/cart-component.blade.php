@@ -6,7 +6,7 @@
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a wire:click="swap(null)" class="nav-link">All</a>
+                        <a wire:click="swap(null)" class="nav-link">Barchasi</a>
                     </li>
 
                     @foreach($categories as $category)

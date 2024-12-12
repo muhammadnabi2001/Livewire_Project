@@ -88,7 +88,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Bonus</label>
-                                    <input type="number" class="form-control" wire:model.blur="bonus">
+                                    <input type="text" class="form-control" wire:model.blur="bonus">
                                     @error('bonus')
                                     <span class="text-danger d-block mt-1">{{ $message }}</span>
                                     @enderror
@@ -137,7 +137,8 @@
                                 <tbody wire:sortable='updateGroup'>
                                     @foreach($hodimlar as $hodim)
                                     <tr draggable="true" wire:sortable.handle="{{ $hodim->id }}">
-                                        <th scope="row" style="white-space: nowrap;">{{ $hodim->id }}</th>
+                                        <th scope="row" style="white-space: nowrap;">{{ ($hodimlar->currentPage() - 1) * $hodimlar->perPage() + $loop->iteration }}</th>
+
                                         <td>{{ $hodim->user->name }}</td>
                                         <td>{{ $hodim->bulim->name }}</td>
 
@@ -164,6 +165,10 @@
                                                         d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
                                                 </svg>
                                             </a>
+                                            <a wire:click="observe({{$hodim->id}})" class="btn btn-success"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
+                                                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>
+                                              </svg></a>
                                         </td>
                                     </tr>
 
@@ -240,7 +245,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Bonus</label>
-                                    <input type="number" class="form-control" wire:model.blur="editbonus">
+                                    <input type="text" class="form-control" wire:model.blur="editbonus">
                                     @error('editbonus')
                                     <span class="text-danger d-block mt-1">{{ $message }}</span>
                                     @enderror
