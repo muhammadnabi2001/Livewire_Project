@@ -114,7 +114,10 @@
 
 
                 <!-- Sidebar Menu -->
+                
                 <nav class="mt-2">
+                    @if(auth()->user()->role=='admin')
+                        
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item">
                             <a href="/categories"  class="nav-link {{ request()->is('categories') ? 'active' : '' }}">
@@ -168,6 +171,16 @@
                     </ul>
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item">
+                            <a href="/jurnal" class="nav-link {{ request()->is('jurnal') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-book"></i> <!-- Jurnal uchun mos ikon -->
+                                <p>Jurnal</p>
+                            </a>
+                        </li>
+                    </ul>
+                    @endif
+
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <li class="nav-item">
                             <a href="/userpage" class="nav-link {{ request()->is('userpage') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-user-circle"></i> <!-- Mijozlar uchun mos ikon -->
                                 <p>Klientlar</p>
@@ -176,12 +189,23 @@
                     </ul>
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item">
-                            <a href="/jurnal" class="nav-link {{ request()->is('jurnal') ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-book"></i> <!-- Jurnal uchun mos ikon -->
-                                <p>Jurnal</p>
+                            <a href="/afitsant" class="nav-link {{ request()->is('afitsant') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-clipboard-list"></i> <!-- Afitsantlar uchun mos ikon -->
+                                <p>Afitsantlar</p>
                             </a>
                         </li>
                     </ul>
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <li class="nav-item">
+                            <a href="/navbat" class="nav-link {{ request()->is('navbat') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-hourglass-half"></i> <!-- Qum soat ikoni -->
+                                <p>Navbatlar</p>
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    
+                    
                     
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item">

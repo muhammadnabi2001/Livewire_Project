@@ -49,13 +49,27 @@ class JurnalComponent extends Component
         $this->name = $user->name;
         $this->remuser = $user;
         $this->remday = $day;
+        $kun = Carbon::parse($this->select);
+        $natija = $kun->format('Y-m') . '-' . ($this->remday < 10 ? '0' . $day : $day);
 
+        $tekshirish = Jurnal::where('user_id', $this->remuser->id)
+        ->where('date', $natija)
+        ->first();
+        if($tekshirish)
+        {
+            $this->start_time = Carbon::parse($tekshirish->start_time)->format('H:i');
+            $this->end_time = Carbon::parse($tekshirish->end_time)->format('H:i');
+        }
+        else{
+            $this->start_time='';
+            $this->end_time='';
+        }
         $this->permit = true;
     }
     public function store()
     {
         $hodim_id = $this->remuser->hodim ? $this->remuser->hodim->id : null;
-
+        
         if (!$hodim_id) {
             session()->flash('error', 'Hodim topilmadi!');
             return back();

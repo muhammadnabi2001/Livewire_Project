@@ -38,6 +38,7 @@ class HodimComponent extends Component
     public $end_time;
     public $img;
     public $editimg;
+    public $detail;
     protected $paginationTheme = 'bootstrap';
     protected $rules = [
         'user_id' => 'required|exists:users,id',
@@ -161,10 +162,15 @@ class HodimComponent extends Component
         $this->reset();
         $this->allow = false;
     }
-    public function observe($id)
+    public function observe(Hodim $hodim)
     {
-        dd($id);
+       // dd($hodim);
+       $this->detail=$hodim;
        $this->kurish=true;
+    }
+    public function restore()
+    {
+        $this->kurish=false;
     }
     public function messages()
     {

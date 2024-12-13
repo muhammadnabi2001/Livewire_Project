@@ -21,7 +21,7 @@
                             @csrf
                             <div class="mb-3">
                                 <label class="form-label">Name</label>
-                                <input type="text" class="form-control" wire:model.blur="name">
+                                <input type="text" class="form-control" wire:model.blur="name" disabled>
                                 @error('name')
                                     <span class="text-danger d-block mt-1">{{ $message }}</span>
                                 @enderror
@@ -88,15 +88,22 @@
                                                 @endphp
                                                 <td style="text-align: center; padding: 5px;">
                                                     <button wire:click="plus({{$user->id}},{{$day}})" class="btn btn-sm 
-                                                        {{$jurnal ? ($jurnal->hodim && $jurnal->hodim->kunlik_time && $jurnal->time < $jurnal->hodim->kunlik_time ? 'btn-danger' : 'btn-primary') : 'btn-dark'}}"
-                                                        style="width: 100%; height: 30px; padding: 2px; overflow: visible; white-space: nowrap; font-size: 12px;">
+                                                        {{$jurnal ? ($jurnal->hodim && $jurnal->hodim->kunlik_time && $jurnal->time < $jurnal->hodim->kunlik_time ? 'btn-danger' : 'btn-primary') : 'btn-light'}}"
+                                                        style="width: 100%; height: 30px; padding: 2px; overflow: visible; white-space: nowrap; font-size: 12px;"  data-bs-toggle="tooltip" 
+                                                        title="@if($user->hodim) start_time: {{ $user->hodim->start_time }} | end_time: {{ $user->hodim->end_time }} @else Hodim mavjud emas @endif">
                                                         {{$jurnal ? $jurnal->time : '-'}}
+                                                        {{$jurnal ? ($jurnal->hodim && $jurnal->hodim->start_time >= $jurnal->start_time ? '+' : '-') : ''}}
+
+
                                                     </button>
+                                                    
+                                                    
                                                 </td>
                                             @endforeach
                                         </tr>
                                     @endforeach
                                 </tbody>
+
                             </table>
                             
                             

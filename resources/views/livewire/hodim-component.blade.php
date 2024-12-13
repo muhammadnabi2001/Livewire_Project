@@ -8,7 +8,7 @@
                         <h1 class="m-0">Hodimlar</h1>
                     </div>
                 </div>
-                @if(!$allow)
+                @if(!$allow && !$kurish)
 
                 <div class="row mb-2">
                     <div class="col-sm-6 mt-2">
@@ -118,7 +118,7 @@
 
 
                 @endif
-                @if(!$allow)
+                @if(!$allow && !$kurish)
                 <div class="row">
                     <div class="col-12">
                         <div class="table-responsive">
@@ -274,6 +274,73 @@
                 </div>
 
                 @endif
+
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="table-responsive">
+                            @if($kurish)
+                            <table class="table table-bordered text-center">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" style="width: 1%;">#</th>
+                                        <th scope="col" style="width: 5%;">Name</th>
+                                        <th scope="col" style="width: 5%;">Bulim</th>
+
+                                        <th scope="col" style="width: 5%;">Rasm</th>
+                                        <th scope="col" style="width: 10%;">Ishni Boshlash</th>
+                                        <th scope="col" style="width: 10%;">Ishni Tugatish</th>
+                                        <th scope="col" style="width: 10%;">Kunlik Soat</th>
+                                        <th scope="col" style="width: 10%;">Oylik</th>
+                                        <th scope="col" style="width: 10%;">Oylik Turi</th>
+                                        <th scope="col" style="width: 10%;">Bonus</th>
+                                    </tr>
+                                </thead>
+                                <tbody wire:sortable='updateGroup'>
+                                    <tr draggable="true">
+                                        <th scope="row" style="white-space: nowrap;">{{$detail->id}}</th>
+
+                                        <td>{{$detail->user->name}}</td>
+                                        <td>{{$detail->bulim->name}}</td>
+                                        <td>
+                                            <img src="{{ asset('storage/' . $detail->img) }}" alt="Meal Image"
+                                                width="100px" height="100px">
+                                        </td>
+                                        <td>
+                                            {{$detail->start_time}}
+                                        </td>
+                                        <td>
+                                            {{$detail->end_time}}
+                                        </td>
+                                        <td>
+                                            {{$detail->kunlik_time}}
+                                        </td>
+                                        <td>
+                                            {{$detail->oylik_miqdor}}
+                                        </td>
+                                        <td>
+                                            {{$detail->oylik_type}}
+                                        </td>
+                                        <td>
+                                            {{$detail->bonus}}
+                                        </td>
+                                     
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                            <div class="mb-3">
+                                <input class="btn btn-warning mt-3" value="Back" wire:click="restore">
+                            </div>
+                            @endif
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
             </div>
         </section>
     </div>
