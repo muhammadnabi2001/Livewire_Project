@@ -20,9 +20,9 @@ class UserOrderComponent extends Component
     public function render()
     {
         $this->orders = Order::orderBy('queue', 'asc')->where('status', 1)->where('date', now()->toDateString())->get();
-        $this->jarayonda = Order::orderBy('queue', 'asc')->where('status', 3)->where('date', now()->toDateString())->get();
-        $this->tayyor = Order::orderBy('queue', 'asc')->where('status', 4)->where('date', now()->toDateString())->get();
-        $this->yetkazilgan = Order::orderBy('queue', 'asc')->where('status', 5)->where('date', now()->toDateString())->get();
+        $this->jarayonda = Order::orderBy('queue', 'asc')->where('status', 2)->where('date', now()->toDateString())->get();
+        $this->tayyor = Order::orderBy('queue', 'asc')->where('status', 3)->where('date', now()->toDateString())->get();
+        $this->yetkazilgan = Order::orderBy('queue', 'asc')->where('status', 4)->where('date', now()->toDateString())->get();
         return view('livewire.user-order-component');
     }
     public function show($id)
@@ -66,11 +66,11 @@ class UserOrderComponent extends Component
         // dd($user->role);
         $order = Order::findOrFail($id);
 
-        $order->status = 5;
+        $order->status = 4;
         $order->save();
 
         foreach ($order->orderItems as $orderItem) {
-            $orderItem->status = 5;
+            $orderItem->status = 4;
             $orderItem->save();
         }
         UserOrder::create([

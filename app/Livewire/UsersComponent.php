@@ -13,13 +13,12 @@ class UsersComponent extends Component
 
     public $food;
     public $categories;
-    public $filterCategory = null; // Tanlangan kategoriya ID'sini saqlash uchun
+    public $filterCategory = null; 
 
     protected $paginationTheme = 'bootstrap';
 
     public function render()
     {
-        // Filtrlashni qo'llash
         $meals = Meal::when($this->filterCategory, function ($query) {
             $query->where('category_id', $this->filterCategory);
         })->orderBy('id', 'desc')->paginate(6);
@@ -55,7 +54,7 @@ class UsersComponent extends Component
 
     public function swap($id)
     {
-        $this->filterCategory = $id; // Tanlangan kategoriya ID'sini o'zgartirish
-        $this->resetPage(); // Paginationni boshiga qaytarish
+        $this->filterCategory = $id; 
+        $this->resetPage(); 
     }
 }

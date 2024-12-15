@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Category;
 use App\Models\Order;
 use Livewire\Component;
 
@@ -15,13 +16,15 @@ class NavbatComponent extends Component
     public $tayyorpermit=false;
     public $topshirilgan;
     public $licence=false;
+    public $categories;
     public function render()
     {
+        $this->categories = Category::all();
         $this->orders = Order::orderBy('queue', 'asc')->where('status', 1)->where('date', now()->toDateString())->get();
         $this->jarayonda = Order::orderBy('queue', 'asc')->where('status', 2)->where('date', now()->toDateString())->get();
         $this->tayyor=Order::orderBy('queue','asc')->where('status',3)->where('date',now()->toDateString())->get();
         $this->topshirilgan=Order::orderBy('queue','asc')->where('status',4)->where('date',now()->toDateString())->get();
-        return view('livewire.navbat-component');
+        return view('livewire.navbat-component')->layout('components.Layout.main');
     }
     public function show($id)
     {

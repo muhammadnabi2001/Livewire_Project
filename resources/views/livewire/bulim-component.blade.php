@@ -56,7 +56,8 @@
                                     @foreach($bulims as $bulim)
                                         @if($allow != $bulim->id)
                                         <tr draggable="true" wire:sortable.handle="{{ $bulim->id }}">
-                                            <th scope="row" style="white-space: nowrap;">{{ $bulim->id }}</th>
+                                            <th scope="row" style="white-space: nowrap;">{{ ($bulims->currentPage() - 1) * $bulims->perPage() + $loop->iteration }}</th>
+
                                             <td>{{ $bulim->name }}</td>
                                             <td>
                                                 <a wire:click="change({{ $bulim->id }})" class="btn btn-warning" draggable="false">

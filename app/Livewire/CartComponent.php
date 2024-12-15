@@ -76,7 +76,7 @@ class CartComponent extends Component
         }
 
         session()->forget('cart');
-        return redirect()->to('/userpage');
+        return redirect()->to('/userpage')->with('success',"Buyurtmangiz qabul qilndi!!!  Sizning navbatingiz ".$queue+1 ."-chi");
     }
     public function addToCart($mealId)
     {

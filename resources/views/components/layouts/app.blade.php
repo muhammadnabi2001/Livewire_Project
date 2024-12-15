@@ -178,7 +178,7 @@
                         </li>
                     </ul>
                     @endif
-
+                        
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item">
                             <a href="/userpage" class="nav-link {{ request()->is('userpage') ? 'active' : '' }}">
@@ -187,6 +187,8 @@
                             </a>
                         </li>
                     </ul>
+                    @if(auth()->user()->role == 'afitsant')
+
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item">
                             <a href="/afitsant" class="nav-link {{ request()->is('afitsant') ? 'active' : '' }}">
@@ -195,6 +197,8 @@
                             </a>
                         </li>
                     </ul>
+                    @endif
+
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item">
                             <a href="/navbat" class="nav-link {{ request()->is('navbat') ? 'active' : '' }}">

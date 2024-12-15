@@ -30,11 +30,18 @@
             </div>
         </div>
     </nav>
+
     @if($allow)
-        
+
     <section class="ftco-section">
         <div class="container mt-3">
             <div class="row">
+                @if(session('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                @endif
                 @foreach($meals as $meal)
                 <div class="col-md-6 col-lg-4 mb-4" wire:key="meal-{{ $meal->id }}">
                     <div class="menu-wrap">
@@ -77,10 +84,10 @@
 
 
     </section>
-        
+
     @endif
     @if(!$allow)
-        
+
     <section class="ftco-section">
         <div class="container mt-3">
             <div class="row">
@@ -128,7 +135,7 @@
 
                                                             <input id="form1" min="0" name="quantity"
                                                                 value="{{$cart['quantity']}}" type="number"
-                                                                class="form-control" readonly/>
+                                                                class="form-control" readonly />
                                                             <button wire:click='add({{$key}})'
                                                                 class="btn btn-link px-2">
                                                                 <i class="fas fa-plus"></i>
@@ -193,6 +200,6 @@
             </div>
 
 
-    </section>    
+    </section>
     @endif
 </div>

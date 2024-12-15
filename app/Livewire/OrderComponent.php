@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Order;
 use App\Models\OrderItem;
+use App\Models\UserOrder;
 use Livewire\Component;
 
 class OrderComponent extends Component
@@ -94,6 +95,13 @@ class OrderComponent extends Component
     }
     public function topshirish($id)
     {
+       // dd(auth()->user()->role);
+       if (auth()->user()->role != 'afitsant') {
+        //dd(123);
+        session()->flash('success', 'Hodim topilmadi!');
+
+        return redirect()->back()->with('success', 'Siz afitsant emassiz');
+    }
         $order = Order::findOrFail($id);
 
         $order->status = 4;
@@ -103,6 +111,10 @@ class OrderComponent extends Component
             $orderItem->status = 4;
             $orderItem->save();
         }
+        UserOrder::create([
+            'hodim_id' =>auth()->user()->id,
+            'order_id' => $id
+        ]);
     }
     public function see($id)
     {

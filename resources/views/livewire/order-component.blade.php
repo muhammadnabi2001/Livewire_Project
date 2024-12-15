@@ -1,4 +1,27 @@
 <div>
+    {{-- @if(session('success'))
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+var Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 5000
+});
+
+Toast.fire({
+    icon: 'success',
+    title: '{{ session('success') }}'
+});
+}); --}}
+
+    {{-- </script>
+    @endif --}}
+   
+
+   
+
+
     <div class="content-wrapper kanban">
         <section class="content-header">
             <div class="container-fluid">
@@ -10,6 +33,11 @@
                 </div>
             </div>
         </section>
+         @if (session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                    @endif
         <section class="content pb-3">
             <div class="container h-100">
                 <div class="card card-row card-secondary">
@@ -89,6 +117,7 @@
                         @endforeach
                     </div>
                 </div>
+               
                 <div class="card card-row card-default">
                     <div class="card-header bg-info">
                         <h3 class="card-title">
@@ -121,7 +150,7 @@
                             </div>
                             <div class="card-footer d-flex justify-content-end">
                                 <button wire:click="topshirish({{$t->id}})" class="btn btn-success btn-sm">
-                                    <i class="fas fa-check"></i> Afisantga Topshirish
+                                    <i class="fas fa-check"></i> Klientga yetkazish
                                 </button>
                             </div>
                             @endif
