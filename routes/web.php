@@ -5,6 +5,7 @@ use App\Livewire\BulimComponent;
 use App\Livewire\CartComponent;
 use App\Livewire\CategoryComponent;
 use App\Livewire\CheckComponent;
+use App\Livewire\FixedSalaryComponent;
 use App\Livewire\ForgotpasswordComponent;
 use App\Livewire\HodimComponent;
 use App\Livewire\HomeComponent;
@@ -38,3 +39,4 @@ Route::get('hodim',HodimComponent::class)->name('hodim')->middleware(Check::clas
 Route::get('jurnal',JurnalComponent::class)->name('jurnal')->middleware(Check::class.':admin');
 Route::get('afitsant',UserOrderComponent::class)->name('afitsant')->middleware(Check::class.':afitsant');
 Route::get('navbat',NavbatComponent::class)->name('navbat');
+Route::get('fixedsalary',FixedSalaryComponent::class)->name('fixedsalary');

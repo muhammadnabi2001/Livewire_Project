@@ -181,12 +181,13 @@
                         
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item">
-                            <a href="/userpage" class="nav-link {{ request()->is('userpage') ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-user-circle"></i> <!-- Mijozlar uchun mos ikon -->
-                                <p>Klientlar</p>
+                            <a href="/fixedsalary" class="nav-link {{ request()->is('userpage') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-dollar-sign"></i> <!-- Fixed Salary related icon -->
+                                <p>FixedSalary</p>
                             </a>
                         </li>
                     </ul>
+                    
                     @if(auth()->user()->role == 'afitsant')
 
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">

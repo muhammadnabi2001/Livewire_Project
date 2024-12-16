@@ -19,6 +19,7 @@ class JurnalComponent extends Component
     public $now;
     public $select;
     public $permit = false;
+    
     public function render()
     {
         $this->users = User::orderBy('id', 'desc')->get();
