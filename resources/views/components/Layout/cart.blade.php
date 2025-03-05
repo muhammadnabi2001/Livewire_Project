@@ -8,7 +8,6 @@
     <title>Document</title>
     @livewireStyles
 </head>
-
 <body>
     <!-- MDBootstrap CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.css" rel="stylesheet">
