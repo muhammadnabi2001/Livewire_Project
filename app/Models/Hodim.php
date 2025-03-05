@@ -30,4 +30,8 @@ class Hodim extends Model
     {
         return $this->hasMany(Jurnal::class,'hodim_id');
     }
+    public function oyliklar()
+    {
+        return $this->hasMany(Salary::class, 'hodim_id', 'id');
+    }
 }

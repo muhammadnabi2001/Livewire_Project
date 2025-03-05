@@ -37,10 +37,10 @@
     <div class="wrapper">
         @livewireScripts
         <!-- Preloader -->
-        <div class="preloader flex-column justify-content-center align-items-center">
+        {{-- <div class="preloader flex-column justify-content-center align-items-center">
             <img class="animation__shake" src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="AdminLTELogo" height="60"
                 width="60">
-        </div>
+        </div> --}}
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
             <!-- Left navbar links -->
             <ul class="navbar-nav">
@@ -187,6 +187,28 @@
                             </a>
                         </li>
                     </ul>
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <li class="nav-item">
+                            <a href="/kpisalary" class="nav-link {{ request()->is('kpisalary') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-chart-line"></i> <!-- KPI-related icon -->
+                                <p>KpiSalary</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <li class="nav-item">
+                            <a href="/givesalary" class="nav-link {{ request()->is('givesalary') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-hand-holding-usd"></i> <!-- GiveSalary uchun yangi ikonka -->
+                                <p>GiveSalary</p>
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    
+                   
+                    
+                    
+                    
                     
                     @if(auth()->user()->role == 'afitsant')
 
@@ -296,6 +318,18 @@
     </script>
     
     <script src="https://cdn.jsdelivr.net/gh/livewire/sortable@v1.x.x/dist/livewire-sortable.js"></script>
+    <script>
+        window.addEventListener('close-modal', event => {
+            var modals = document.querySelectorAll('.modal.show');
+            modals.forEach(modal => {
+                var modalInstance = bootstrap.Modal.getInstance(modal);
+                modalInstance.hide();
+            });
+        });
+    </script>
+    
+    
+    
 </body>
 
 </html>

@@ -5,7 +5,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">FixedSalary Calculation</h1>
+                            <h1 class="m-0">KpiSalary Calculation</h1>
                         </div>
                     </div>
                 </div>
@@ -28,12 +28,10 @@
                                         <tr>
                                             <th>Id</th>
                                             <th>Fio</th>
-                                            <th>fixed</th>
                                             <th>Jami ishlagan soat</th>
                                             <th>
                                                 oylik miqdori
                                             </th>
-
                                         </tr>
                                     </thead>
                                     @php
@@ -42,15 +40,13 @@
                                     <tbody>
                                         @foreach($users as $user)
                                         @php
-                                        $j=$this->salarycalculate($user);
+                                            $j=$this->salarycalculate($user);
                                         @endphp
                                         <tr>
                                             <th scope="row" style="padding: 5px; text-align: center;">{{$int++}}</th>
                                             <td style="padding: 5px;">{{$user->user->name}}</td>
-                                            <td>{{$user->oylik_miqdor}}</td>
                                             <td>{{number_format($j['total_worked_hours'])}} soat</td>
                                             <td>{{number_format($j['salary'])}} so'm</td>
-                                            
                                         </tr>
                                         @endforeach
                                     </tbody>

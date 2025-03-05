@@ -7,9 +7,11 @@ use App\Livewire\CategoryComponent;
 use App\Livewire\CheckComponent;
 use App\Livewire\FixedSalaryComponent;
 use App\Livewire\ForgotpasswordComponent;
+use App\Livewire\GiveSalaryComponent;
 use App\Livewire\HodimComponent;
 use App\Livewire\HomeComponent;
 use App\Livewire\JurnalComponent;
+use App\Livewire\KpiSalaryComponent;
 use App\Livewire\LoginComponent;
 use App\Livewire\MealComponent;
 use App\Livewire\NavbatComponent;
@@ -40,3 +42,5 @@ Route::get('jurnal',JurnalComponent::class)->name('jurnal')->middleware(Check::c
 Route::get('afitsant',UserOrderComponent::class)->name('afitsant')->middleware(Check::class.':afitsant');
 Route::get('navbat',NavbatComponent::class)->name('navbat');
 Route::get('fixedsalary',FixedSalaryComponent::class)->name('fixedsalary');
+Route::get('kpisalary',KpiSalaryComponent::class)->name('kpisalary');
+Route::get('givesalary',GiveSalaryComponent::class)->name('givesalary');
